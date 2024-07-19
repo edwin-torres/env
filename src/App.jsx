@@ -5,11 +5,8 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
-  const apiKey = import.meta.env.VITE_API_KEY;
-const apiUrl = import.meta.env.VITE_API_URL;
-console.log('API Key:', apiKey);
-console.log('API URL:', apiUrl);
+ 
+ 
 
   return (
     <>
@@ -21,10 +18,13 @@ console.log('API URL:', apiUrl);
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>{apiUrl}</h1>
+      <h1>{import.meta.env.VITE_API_KEY}</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={() => {
+          console.log('key: ', import.meta.env.VITE_API_KEY);
+          console.log('url: ', import.meta.env.VITE_API_URL);
+        }}>
+          key is {count}
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
